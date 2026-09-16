@@ -27,6 +27,7 @@ The dump is a `system/` tree, so every path below is relative to
 | [`docs/b2g-runtime.md`](docs/b2g-runtime.md) | how Boot2Gecko boots, what `b2g`/`libxul`/`omni.ja` are, how an app is packaged and launched |
 | [`docs/f491h-dump.md`](docs/f491h-dump.md) | the F491H image layout, config files, the 64 bundled apps, and what each one is |
 | [`docs/spoofing-model.md`](docs/spoofing-model.md) | the native/spoof/deny capability model and the line we do not cross |
+| [`docs/app-notes.md`](docs/app-notes.md) | what individual packages actually are when you run them |
 | [`findings/f491h.json`](findings/f491h.json) | the same facts as data, for tooling |
 | [`findings/webapps.json`](findings/webapps.json) | raw `system/b2g/webapps` listing from the dump API |
 
