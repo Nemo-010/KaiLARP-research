@@ -1,0 +1,53 @@
+name: validate
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  findings:
+    name: check the recorded findings
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: validate JSON and cross-check counts
+        run: |
+          python3 - <<'PY'
+          import json, pathlib, re, sys
+
+          root = pathlib.Path('.')
+          findings = root / 'findings'
+          failed = []
+
+          for path in sorted(findings.glob('*.json')):
+              try:
+                  json.loads(path.read_text())
+                  print(f'ok    {path}')
+              except Exception as err:
+                  failed.append(f'{path}: {err}')
+
+          f491h = json.loads((findings / 'f491h.json').read_text())
+          webapps = json.loads((findings / 'webapps.json').read_text())
+          directories = [e for e in webapps if e['type'] == 'tree' and e['name'] != 'webapps.json']
+          if f491h['apps']['count'] != len(directories):
+              failed.append(f'app count {f491h["apps"]["count"]} != {len(directories)} directories in the dump listing')
+          grouped = sum(f491h['apps']['counts'].values())
+          if grouped != f491h['apps']['count']:
+              failed.append(f'group counts {grouped} != total {f491h["apps"]["count"]}')
+          print(f'ok    {f491h["apps"]["count"]} apps, groups {f491h["apps"]["counts"]}')
+
+          readme = (root / 'README.md').read_text()
+          for link in re.findall(r'\]\(([^)]+)\)', readme):
+              if link.startswith(('http://', 'https://', '#')):
+                  continue
+              if not (root / link).exists():
+                  failed.append(f'README link does not resolve: {link}')
+          print('ok    README links resolve')
+
+          if failed:
+              print('\nFAILED:')
+              for line in failed:
+                  print(' ', line)
+              sys.exit(1)
+          PY

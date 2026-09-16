@@ -1,0 +1,164 @@
+{
+  "generatedAt": "2026-09-15T22:38:43.771390+00:00",
+  "dump": {
+    "host": "https://dumps.tadiphone.dev",
+    "project": "dumps/jio/f491h",
+    "projectId": 4430,
+    "ref": "MAD-user-6.0-MRA58K-Jio-F491H-F001-04-13-310823-release-keys",
+    "rawBase": "https://dumps.tadiphone.dev/dumps/jio/f491h/-/raw/MAD-user-6.0-MRA58K-Jio-F491H-F001-04-13-310823-release-keys"
+  },
+  "device": {
+    "model": "F491H",
+    "vendor": "LYF",
+    "marketingName": "JioPhone 2",
+    "android": {
+      "release": "6.0",
+      "sdk": 23,
+      "buildId": "MRA58K"
+    },
+    "screen": {
+      "width": 240,
+      "height": 320,
+      "devicePixelRatio": 1
+    },
+    "locale": "en-IN",
+    "timezone": "Asia/Kolkata"
+  },
+  "runtime": {
+    "name": "B2G",
+    "vendor": "KaiOS",
+    "version": "2.5.3.2",
+    "gecko": "48.0a2",
+    "buildId": "20230831153742",
+    "appId": "{3c2e2abc-06d4-11e1-ac3b-374f68613e61}",
+    "crashEndpoint": "crash-reports.kaiostech.com",
+    "libs": [
+      "libxul.so",
+      "libmozglue.so",
+      "libmozsandbox.so",
+      "libnss3.so",
+      "libfreebl3.so",
+      "libsoftokn3.so",
+      "libnssckbi.so"
+    ],
+    "data": [
+      "icudt56l.dat",
+      "omni.ja"
+    ],
+    "gmps": [
+      "gmp-clearkey",
+      "gmp-fake",
+      "gmp-fakeopenh264"
+    ],
+    "executables": [
+      "b2g",
+      "plugin-container",
+      "xpcshell"
+    ]
+  },
+  "config": {
+    "settings.json": {
+      "bytes": 497364,
+      "note": "truncated by the sandbox proxy when fetched"
+    },
+    "deviceconfig.json": {
+      "bytes": 6250,
+      "note": "kaidc.* -> settings key map"
+    },
+    "customization.json": {
+      "bytes": 2686
+    },
+    "ua-update.json": {
+      "bytes": 3197
+    },
+    "pref": [
+      "dev-pref.js",
+      "user.js"
+    ]
+  },
+  "apps": {
+    "count": 64,
+    "groups": {
+      "gaia": [
+        "agingtest.gaiamobile.org",
+        "bluetooth.gaiamobile.org",
+        "calculator.gaiamobile.org",
+        "calendar.gaiamobile.org",
+        "callrecording.gaiamobile.org",
+        "callscreen.gaiamobile.org",
+        "camera.gaiamobile.org",
+        "clock.gaiamobile.org",
+        "communications.gaiamobile.org",
+        "contact.gaiamobile.org",
+        "customization.gaiamobile.org",
+        "default_theme.gaiamobile.org",
+        "download.gaiamobile.org",
+        "emergency-call.gaiamobile.org",
+        "engmode.gaiamobile.org",
+        "filemanager.gaiamobile.org",
+        "fm.gaiamobile.org",
+        "fota.gaiamobile.org",
+        "ftu.gaiamobile.org",
+        "gallery.gaiamobile.org",
+        "keyboard.gaiamobile.org",
+        "keypad.gaiamobile.org",
+        "launcher.gaiamobile.org",
+        "loginpages.gaiamobile.org",
+        "logmanager.gaiamobile.org",
+        "mdnwatpos.gaiamobile.org",
+        "mmitest.gaiamobile.org",
+        "music.gaiamobile.org",
+        "network-alerts.gaiamobile.org",
+        "notes.gaiamobile.org",
+        "operatorvariant.gaiamobile.org",
+        "ringtones.gaiamobile.org",
+        "search.gaiamobile.org",
+        "settings.gaiamobile.org",
+        "stk.gaiamobile.org",
+        "system.gaiamobile.org",
+        "unitconverter.gaiamobile.org",
+        "video.gaiamobile.org",
+        "wallpaper.gaiamobile.org",
+        "wappush.gaiamobile.org"
+      ],
+      "jio": [
+        "diagnostics.jio.com",
+        "filecleaner.jio.com",
+        "hellojio.jio.com",
+        "jioads.jio.com",
+        "jiochannels.jio.com",
+        "jiocinema.jio.com",
+        "jiods.jio.com",
+        "jiogames.jio.com",
+        "jiohelpline.jio.com",
+        "jiomessages.rjil.com",
+        "jiomessaging.jio.com",
+        "jiomusic.jio.com",
+        "jiopages.jio.com",
+        "jiopay.jio.com",
+        "jioservice.jio.com",
+        "jiotv.jio.com",
+        "jiovideocall.jio.com",
+        "jioxpressnews.jio.com",
+        "myjio.jio.com"
+      ],
+      "third-party": [
+        "assistant.google.com",
+        "kaios-plus.kaiostech.com",
+        "kaios.whatsapp.net",
+        "m.facebook.com",
+        "youtube.com"
+      ]
+    },
+    "counts": {
+      "gaia": 40,
+      "jio": 19,
+      "third-party": 5
+    }
+  },
+  "appPackages": {
+    "format": "webapps/<origin>/{update.webapp,application.zip}",
+    "manifestInsideZip": "manifest.webapp",
+    "registry": "system/b2g/webapps/webapps.json"
+  }
+}
