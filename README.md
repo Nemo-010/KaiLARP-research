@@ -41,6 +41,11 @@ behaviour depends on real hardware: `mozMobileConnections` is a radio,
 `mozTelephony` places calls, `mozCameras` is a camera, `mozSecureElement` is
 the NFC secure element.
 
+Three packages have now been run for real, and each one found different gaps:
+YouTube (a shell around a framed site), FPDD (the hardware self-test, refused at
+the gate) and JioPay (a full app that boots, reads the device datastore and then
+decides what to do). `docs/app-notes.md` records what each one actually does.
+
 So "run a JioPhone app on an Android phone" is two problems, not one:
 
 1. **Run the web app.** A modern web engine can do that; what it cannot do is

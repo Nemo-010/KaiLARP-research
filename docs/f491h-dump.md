@@ -108,6 +108,25 @@ and `/-/law`-style APIs list trees. Two practical notes from working with it:
   (calculator) to several MiB (settings, ~4 MiB). Through a constrained proxy
   (see below) they truncate.
 
+### What the truncation looks like, measured
+
+`Content-Length` is honest, the body is not:
+
+| file | `Content-Length` | bytes actually received |
+| --- | --- | --- |
+| `jiopay.jio.com/update.webapp` | 8 830 | 8 830 |
+| `jiopay.jio.com/application.zip` | 3 010 980 | 23 743 |
+| `calculator.gaiamobile.org/application.zip` | 104 784 | 23 744 |
+| `system/b2g/defaults/settings.json` | ~486 KiB | 19 651 |
+
+So a truncated download is a **valid ZIP prefix**: it has the local file
+headers, `unzip` reports `End-of-central-directory signature not found`, and a
+naive `curl -o` exits 0. Check the size against `Content-Length` before
+believing a package is complete. Plain HTTP is refused outright from this
+environment (`connect ... Permission denied`), which is worth knowing before
+debugging an app's `http://api.jio.com` call — the failure is the sandbox, not
+the app.
+
 ### A note for whoever runs this next
 
 In the environment these notes were written in, `dumps.tadiphone.dev`
